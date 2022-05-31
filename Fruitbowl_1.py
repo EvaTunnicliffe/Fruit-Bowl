@@ -38,6 +38,16 @@ def remove_fruit(l):
     print(output)
 
 
+def add_new_entry(l):
+    print("Start adding a new entry.")
+    fruit = get_string("What new fruit would you like to add ")
+    quantity = get_string("Please enter the quantity that you would like to do -> ")
+    new_list = [fruit, quantity]
+    l.append(new_list)
+    output = "You have added {} {}s".format(quantity, fruit)
+    print(output)
+
+
 def main():
     fruit_list = [["Apples", 10],
                   ["Grapes", 500],
@@ -51,6 +61,7 @@ def main():
         P: Print out list of fruit
         A: Adding to fruit
         R: Removing existing fruit
+        N: Adding a new type of fruit
         Q: Quit'''
         print(menu)
         choice = input("What would you like to do? ")
@@ -60,6 +71,8 @@ def main():
             add_fruit(fruit_list)
         elif choice == "R":
             remove_fruit(fruit_list)
+        elif choice == "N":
+            add_new_entry(fruit_list)
         elif choice == "Q":
             run = False
 
