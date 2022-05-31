@@ -29,6 +29,15 @@ def add_fruit(l):
     print(output)
 
 
+def remove_fruit(l):
+    print_with_indexes(l)
+    choice = get_integer("Choose your fruit that you would like to remove from: ")
+    quantity = get_integer("How many would you like to remove: ")
+    l[choice][1] -= quantity
+    output = "{} {} have been removed from the list".format(quantity, l[choice][0])
+    print(output)
+
+
 def main():
     fruit_list = [["Apples", 10],
                   ["Grapes", 500],
@@ -41,6 +50,7 @@ def main():
         menu = '''
         P: Print out list of fruit
         A: Adding to fruit
+        R: Removing existing fruit
         Q: Quit'''
         print(menu)
         choice = input("What would you like to do? ")
@@ -48,6 +58,8 @@ def main():
             print_fruit(fruit_list)
         elif choice == "A":
             add_fruit(fruit_list)
+        elif choice == "R":
+            remove_fruit(fruit_list)
         elif choice == "Q":
             run = False
 
