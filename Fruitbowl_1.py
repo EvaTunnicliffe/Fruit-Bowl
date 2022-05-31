@@ -48,6 +48,18 @@ def add_new_entry(l):
     print(output)
 
 
+def remove_entry(l):
+    print("Start removing fruit")
+    print_with_indexes(l)
+    fruit = get_integer("What index number fruit would you like to remove: ")
+    if fruit in l:
+        del l[fruit]
+        output = "Index number {} has been removed from the list".format(fruit)
+        print(output)
+    else:
+        print("This index number is not in the list")
+
+
 def main():
     fruit_list = [["Apples", 10],
                   ["Grapes", 500],
@@ -60,8 +72,9 @@ def main():
         menu = '''
         P: Print out list of fruit
         A: Adding to fruit
-        R: Removing existing fruit
         N: Adding a new type of fruit
+        R: Removing existing fruit
+        X: Removing a new type of fruit
         Q: Quit'''
         print(menu)
         choice = input("What would you like to do? ")
@@ -69,10 +82,12 @@ def main():
             print_fruit(fruit_list)
         elif choice == "A":
             add_fruit(fruit_list)
-        elif choice == "R":
-            remove_fruit(fruit_list)
         elif choice == "N":
             add_new_entry(fruit_list)
+        elif choice == "R":
+            remove_fruit(fruit_list)
+        elif choice == "X":
+            remove_entry(fruit_list)
         elif choice == "Q":
             run = False
 
