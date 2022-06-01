@@ -1,6 +1,11 @@
-def get_integer(m):
-    my_integer = int(input(m))
-    return my_integer
+def get_integer(m, _min=0, _max=10):
+    getting = True
+    while getting:
+        my_integer = int(input(m))
+        if my_integer < _min or my_integer >= _max:
+            print('Sorry, this index is not available')
+        else:
+            return my_integer
 
 
 def get_string(m):
@@ -51,13 +56,10 @@ def add_new_entry(l):
 def remove_entry(l):
     print("Start removing fruit")
     print_with_indexes(l)
-    fruit = get_integer("What index number fruit would you like to remove: ")
-    if fruit in l:
-        del l[fruit]
-        output = "Index number {} has been removed from the list".format(fruit)
-        print(output)
-    else:
-        print("This index number is not in the list")
+    fruit = get_integer("What index number fruit would you like to remove: ",0, len(l))
+    del l[fruit]
+    output = "Index number {} has been removed from the list".format(fruit)
+    print(output)
 
 
 def main():
